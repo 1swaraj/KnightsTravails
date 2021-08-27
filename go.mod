@@ -1,4 +1,4 @@
-module github.com/1swaraj/KnightTravails
+module github.com/1swaraj/KnightsTravails
 
 go 1.16
 
