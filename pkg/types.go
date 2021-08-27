@@ -3,9 +3,9 @@ package pkg
 import "github.com/1swaraj/KnightTravails/utils"
 
 type Chess struct {
-	rows        int `yaml:"rows"`
-	columns     int `yaml:"cols"`
-	inputHelper utils.InputHelper
+	Rows        int `yaml:"board_rows"`
+	Columns     int `yaml:"board_cols"`
+	InputHelper utils.InputHelper `yaml:"input_helper"`
 }
 
 type Coordinates struct {

@@ -8,12 +8,12 @@ func Init() {
 	InitConfigs()
 	startingCoordinates = chess.GetInputs(StartingPoisition)
 	endingCoordinates = chess.GetInputs(EndingPosition)
-	chess.FindPath(startingCoordinates, endingCoordinates, chess.rows, chess.columns)
+	chess.FindPath(startingCoordinates, endingCoordinates, chess.Rows, chess.Columns)
 }
 
 // Checks if the given coordinates are valid or not
 func (chess *Chess) CheckValidity(coordinates Coordinates) (err error) {
-	if coordinates.x > chess.columns-1 || coordinates.x < 0 || coordinates.y > chess.rows-1 || coordinates.y < 0 {
+	if coordinates.x > chess.Columns-1 || coordinates.x < 0 || coordinates.y > chess.Rows-1 || coordinates.y < 0 {
 		return fmt.Errorf(OutofBoundary)
 	}
 	return
@@ -21,7 +21,7 @@ func (chess *Chess) CheckValidity(coordinates Coordinates) (err error) {
 
 // Getting the input and checking the validity of the input
 func (chess *Chess) GetInputs(msg string) Coordinates {
-	x, y, err := chess.inputHelper.GetPosition(msg)
+	x, y, err := chess.InputHelper.GetPosition(msg)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -48,9 +48,9 @@ func (chess *Chess) FindPath(source Coordinates, dest Coordinates, r, c int) {
 			return
 		}
 		// Skip if the node is already visited
-		if _, ok := visited[position]; !ok {
-			// ignoring the pointer reference
-			visited[position] = true
+		// ignoring the pointer reference while checking if visited or not
+		if _, ok := visited[Coordinates{position.x,position.y, nil}]; !ok {
+			visited[Coordinates{position.x,position.y, nil}] = true
 			for _, move := range moves {
 				potentialMove := Coordinates{x: position.x + move.x, y: position.y + move.y}
 				if err := chess.CheckValidity(potentialMove); err == nil {
@@ -61,6 +61,7 @@ func (chess *Chess) FindPath(source Coordinates, dest Coordinates, r, c int) {
 		}
 		n = len(queue)
 	}
+	fmt.Println(KnightCantMove)
 }
 
 // Printing the shortest path for the knight

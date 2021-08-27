@@ -1,2 +1,3 @@
-rows: 8
-cols: 8
+---
+board_rows: 8
+board_cols: 8
