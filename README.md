@@ -40,7 +40,7 @@ Defines all utility functionalities such as getting user input
 ### Instructions for usage
 
 ```
-git install github.com/1swaraj/KnightsTravails
+go install github.com/1swaraj/KnightsTravails
 KnightsTravails
 ```
 
