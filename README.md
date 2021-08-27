@@ -38,11 +38,23 @@ we won't have to change the logic in the calling functions
 Defines all utility functionalities such as getting user input
 
 ### Instructions for usage
+
+```
+git install github.com/1swaraj/KnightsTravails
+KnightsTravails
+```
+
+To change the size of the board
+```
+KnightsTravails set-size 8 8
+```
+
+If you get some erros then please cross-verify the goenv
+
+Not recommended but you can also use :-
 ```
 git clone https://github.com/1swaraj/KnightsTravails
 cd KnightsTravails
 go mod tidy
 go run .
 ```
-
-If you want to change the size of the board just edit config.yaml

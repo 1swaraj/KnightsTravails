@@ -13,7 +13,6 @@ const DefaultBoardSize = 8
 const EndingPosition = "Enter the Ending Position :"
 const StartingPoisition = "Enter the Starting Position :"
 const OutofBoundary = "The position is out of boundary"
-const CouldNotReadYaml = "Could not find your config file so using the default board size"
 const KnightCantMove = "The knight cannot move from the starting position to the ending position"
 
 // Valid moves for a knight
