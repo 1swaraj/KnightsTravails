@@ -2,10 +2,8 @@ package pkg
 
 import (
 	"bufio"
-	"fmt"
 	"github.com/1swaraj/KnightTravails/utils"
-	"gopkg.in/yaml.v2"
-	"io/ioutil"
+	"github.com/spf13/viper"
 	"os"
 )
 
@@ -15,7 +13,7 @@ const DefaultBoardSize = 8
 const EndingPosition = "Enter the Ending Position :"
 const StartingPoisition = "Enter the Starting Position :"
 const OutofBoundary = "The position is out of boundary"
-const CouldNotReadYaml = "Could not find your config.yaml file so using the default board size"
+const CouldNotReadYaml = "Could not find your config file so using the default board size"
 const KnightCantMove = "The knight cannot move from the starting position to the ending position"
 
 // Valid moves for a knight
@@ -28,17 +26,12 @@ var endingCoordinates Coordinates
 
 // Initializing the chessboard by reading the config from conf.yaml
 func InitConfigs() {
-	yamlFile, err := ioutil.ReadFile("./config.yaml")
-	if err != nil {
-		fmt.Println(CouldNotReadYaml)
-		chess = Chess{Rows: DefaultBoardSize, Columns: DefaultBoardSize, InputHelper: utils.InputHelper{bufio.NewScanner(os.Stdin)}}
-		return
+	rows := viper.GetInt("board_rows")
+	cols := viper.GetInt("board_cols")
+	if rows == 0 || cols == 0 {
+		rows = DefaultBoardSize
+		cols = DefaultBoardSize
 	}
-	err = yaml.Unmarshal(yamlFile, &chess)
-	if err != nil {
-		fmt.Println(CouldNotReadYaml)
-		chess = Chess{Rows: DefaultBoardSize, Columns: DefaultBoardSize, InputHelper: utils.InputHelper{bufio.NewScanner(os.Stdin)}}
-		return
-	}
-	chess.InputHelper = utils.InputHelper{bufio.NewScanner(os.Stdin)}
+	chess = Chess{Rows: rows, Columns: cols, InputHelper: utils.InputHelper{bufio.NewScanner(os.Stdin)}}
+	return
 }

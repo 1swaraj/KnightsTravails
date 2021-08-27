@@ -2,4 +2,8 @@ module github.com/1swaraj/KnightTravails
 
 go 1.16
 
-require gopkg.in/yaml.v2 v2.4.0 // indirect
+require (
+	github.com/spf13/cobra v1.2.1
+	github.com/spf13/viper v1.8.1
+	gopkg.in/yaml.v2 v2.4.0
+)
