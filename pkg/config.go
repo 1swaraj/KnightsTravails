@@ -2,7 +2,7 @@ package pkg
 
 import (
 	"bufio"
-	"github.com/1swaraj/KnightTravails/utils"
+	"github.com/1swaraj/KnightsTravails/utils"
 	"github.com/spf13/viper"
 	"os"
 )

@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/1swaraj/KnightTravails/pkg"
+	"github.com/1swaraj/KnightsTravails/pkg"
 	"github.com/spf13/cobra"
 	"os"
 

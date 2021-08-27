@@ -1,6 +1,6 @@
 package pkg
 
-import "github.com/1swaraj/KnightTravails/utils"
+import "github.com/1swaraj/KnightsTravails/utils"
 
 type Chess struct {
 	Rows        int `yaml:"board_rows"`
